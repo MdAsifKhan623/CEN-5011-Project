@@ -6,5 +6,5 @@ app=Flask(__name__)
 def main():
     return {
         "uid":1,
-        'title':"coviddashboard"
+        'title':"covid dashboard"
     }
