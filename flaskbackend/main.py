@@ -8,3 +8,4 @@ def main():
         "uid":1,
         'title':"covid dashboard"
     }
+from app import app

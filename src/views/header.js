@@ -6,9 +6,9 @@ export default function Header(props){
             <Navbar bg="dark" variant="dark" className="nav-header">
                 <Navbar.Brand href="#home">{props.name}</Navbar.Brand>
                 <Nav className="mr-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/news">News</Nav.Link>
+                <Nav.Link href="#pricing">Local Info</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
