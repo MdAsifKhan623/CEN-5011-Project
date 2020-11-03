@@ -10,8 +10,6 @@ export default function TotalCard(props){
                     <Card.Text>
                     {props.content}
                     </Card.Text>
-                    {/* <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link> */}
                 </Card.Body>
             </Card>
     </div>)
