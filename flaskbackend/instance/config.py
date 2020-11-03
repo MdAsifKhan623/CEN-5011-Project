@@ -4,10 +4,10 @@ DEBUG = True
 SECRET_KEY = os.environ.get('SECRET_KEY') or 'not-the-droid-youre-looking-for'
 
 POSTGRES = {
-    'user': '',
-    'pw': '',
-    'db': '',
-    'host': '',
+    'user': 'cen_project',
+    'pw': 'CEN5011!',
+    'db': 'covid',
+    'host': 'cen-database.cvapiqy2arje.us-east-1.rds.amazonaws.com',
     'port': '5432',
 }
 

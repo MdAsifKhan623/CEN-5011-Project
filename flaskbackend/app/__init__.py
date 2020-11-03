@@ -17,7 +17,6 @@ app.register_blueprint(mod_home)
 
 @app.shell_context_processor
 def make_shell_context():
-    from models import City, Country, CountryData, CityData
-    return {'db': db, 'City': City, 'Country': Country, 'CountryData': CountryData, \
-            'CityData': CityData}
+    from models import City, Country
+    return {'db': db, 'City': City, 'Country': Country}
 
