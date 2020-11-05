@@ -1,11 +1,10 @@
 import React from 'react'
 import Header from './header'
 
-export default function News(){
+export default function Countries(){
     return (
         <div>
-            <Header/>
-            <h2>Covid-19 News</h2>
+            <Header/>          
         </div>
     )
 }

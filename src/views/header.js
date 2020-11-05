@@ -7,8 +7,10 @@ export default function Header(props){
                 <Navbar.Brand href="#home">{props.name}</Navbar.Brand>
                 <Nav className="mr-auto">
                 <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/continents">Continents</Nav.Link>
+                <Nav.Link href="/countries">Countries</Nav.Link>
                 <Nav.Link href="/news">News</Nav.Link>
-                <Nav.Link href="#pricing">Local Info</Nav.Link>
+                <Nav.Link href="/county">Local County Info</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
