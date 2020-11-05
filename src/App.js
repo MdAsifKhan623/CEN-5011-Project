@@ -14,7 +14,7 @@ function App() {
   const [initialData, setInitialData]=useState([{}])
   const [countryData,setCountryData]=useState({})
   useEffect(()=>{
-    axios.get('https://corona.lmao.ninja/v2/countries/india')
+    axios.get('https://disease.sh/v3/covid-19/all?yesterday=true')
     .then(res=>{
           // console.log(res)
           const temp=res.data
@@ -22,25 +22,20 @@ function App() {
     })    
   },[])
   return (
-    
+    <Router>
     <div className="App">
       {console.log(countryData)}
-      <Router>
-          <Switch>
-            <Route exact path="/" render={ props=>
-              <div>
-                <Header/>
-                <Dashboard/>
-              </div>
-              }/>
-              <Route exact path="/news" component={News}/>
-              <Route exact path="/countries" component={Countries}/>
-              <Route exact path="/continents" component={Continents}/>
-              <Route exact path="/county" component={LocalInfo}/>
-          </Switch>
-      </Router>
+          <Header/>
 
+          <Switch>  
+            <Route path="/" exact component={Dashboard}/>
+            <Route path="/news" exact  component={News}/>
+            <Route path="/countries" exact component={Countries}/>
+            <Route path="/continents" exact component={Continents}/>
+            <Route path="/county" exact component={LocalInfo}/>
+          </Switch>
     </div>
+    </Router>
   );
 }
 
