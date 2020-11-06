@@ -1,19 +1,57 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import TotalCard from './totalCard'
 import {Container, Row, Col} from 'react-bootstrap'
 import TabHeader from './tabHeader'
+import axios from 'axios'
 
-export default function Dashboard(){
+function Dashboard(){
+    let globalCases, deathCases,unitedStatesCases
+    const [countryData,setCountryData]=useState({
+        totalCases:{},
+        usCases:{},
+        usStates:{}
+    })
+     
+    const fetchData=()=>{
+        const totalCase=axios.get('https://disease.sh/v3/covid-19/all?yesterday=true')
+        const usCases=axios.get('https://disease.sh/v3/covid-19/countries/United%20States?strict=true')
+        const stateCases=axios.get('https://disease.sh/v3/covid-19/states')
+        axios.all([totalCase,usCases,stateCases])
+        .then(axios.spread((...res)=>{
+           setCountryData({totalCases:res[0].data,usCases:res[1].data, usStates:res[2].data})
+        }))
+        .catch(err=>{
+            console.log(err)
+        })
+      }
+    
+    useEffect(()=>{ 
+        fetchData()
+    },[])
+
+    if (Object.keys(countryData.totalCases).length !== 0){
+        globalCases= <TotalCard title="Total Positive Cases" content={countryData.totalCases.cases} posVal={countryData.totalCases.todayCases}/>
+        deathCases= <TotalCard title="Total Death Cases" content={countryData.totalCases.deaths} posVal={countryData.totalCases.todayDeaths}/>
+    }
+    if (Object.keys(countryData.usCases).length !== 0){
+        unitedStatesCases= <TotalCard title="Total Positive Cases" content={countryData.usCases.cases} posVal={countryData.usCases.todayCases}/>
+    }
     return (
         <div>
+        {console.log("Hello there! wtf")}
         <Container fluid>
+            <div>
+            <center><TabHeader title="Global Covid-19 Data"/></center>
+            </div>
+            <br/>
+            
             <Row>
-            <Col xs="12" md="6"> <TotalCard title="Total Positive Cases" content="36,786,784" posVal="1,989,090"/></Col>
-            <Col xs="12" md="6"> <TotalCard title="Total Deaths" content="500,987" posVal="503" /></Col>
+            <Col xs="12" md="6"> {globalCases} </Col>
+            <Col xs="12" md="6"> {deathCases}</Col>
             </Row>
             <br/>
             <div>
-            <center><TabHeader title="Covid Data Worldwide"/></center>
+            <center><TabHeader title="United States Covid-19 Data"/></center>
             </div>
             <br/>
             <Row>
@@ -40,4 +78,7 @@ export default function Dashboard(){
       </Container>
         </div>
     )
+    
 }
+
+export default Dashboard
