@@ -14,8 +14,9 @@ function App() {
   return (
     <Router>
     <div className="App">
+          <header>
           <Header/>
-
+          </header>
           <Switch>  
             <Route path="/" exact render={props=>
             <div>

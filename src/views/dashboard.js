@@ -3,9 +3,10 @@ import TotalCard from './totalCard'
 import {Container, Row, Col} from 'react-bootstrap'
 import TabHeader from './tabHeader'
 import axios from 'axios'
+import CovidMap from './usCovidMap'
 
 function Dashboard(){
-    let globalCases, deathCases,unitedStatesCases
+    let globalCases, deathCases,unitedStatesCases,indvStatesCases
     const [countryData,setCountryData]=useState({
         totalCases:{},
         usCases:{},
@@ -36,6 +37,7 @@ function Dashboard(){
     if (Object.keys(countryData.usCases).length !== 0){
         unitedStatesCases= <TotalCard title="Total Positive Cases" content={countryData.usCases.cases} posVal={countryData.usCases.todayCases}/>
     }
+    console.log(countryData.usStates)
     return (
         <div>
         {console.log("Hello there! wtf")}
@@ -73,6 +75,9 @@ function Dashboard(){
             <Col md="6" lg="3" xs="12"><TotalCard title="Mexico" content="854,926" posVal="3,699"/></Col>
             <Col md="6" lg="3" xs="12"><TotalCard title="United Kingdom" content="741,212" posVal="18,803"/></Col>
             <Col md="6" lg="3" xs="12"><TotalCard title="South Africa" content="705,254" posVal="1,461"/></Col>
+            </Row>
+            <Row>
+                <CovidMap/>
             </Row>
             <br/>
       </Container>
