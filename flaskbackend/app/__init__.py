@@ -14,6 +14,8 @@ migrate = Migrate(app, db)
 from app.mod_home.controllers import mod_home
 app.register_blueprint(mod_home)
 
+from app.mod_news.controllers import mod_auth as auth_module
+app.register_blueprint(auth_module, url_prefix='/news')
 
 @app.shell_context_processor
 def make_shell_context():
