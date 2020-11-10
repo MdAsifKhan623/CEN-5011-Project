@@ -15,6 +15,11 @@ header{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     color: #01c5c4;
+    background-color:#e8e8e8 ;
+}
+.covid-counts{
+    color:#150485;
+    font-size: 30px;
 }
 .card-tab-header.card{
     text-align: center;
@@ -22,6 +27,7 @@ header{
     font-weight: bold;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
-    color: #2d6187;
+    color: #3adb21;
     width: 600px;
+    background-color: #394989;
 }

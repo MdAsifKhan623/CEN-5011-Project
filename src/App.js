@@ -6,7 +6,7 @@ import Header from './views/header'
 import Dashboard from './views/dashboard'
 import News from './views/news'
 import Continents from './views/continents'
-import Countries from './views/countries'
+import Countries from './views/countryComponents/countries'
 import LocalInfo from './views/localInfo'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <Router>
     <div className="App">
           <header>
-          <Header/>
+          <Header name="Covid-19 App"/>
           </header>
           <Switch>  
             <Route path="/" exact render={props=>

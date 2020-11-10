@@ -3,23 +3,24 @@ import TotalCard from './totalCard'
 import {Container, Row, Col} from 'react-bootstrap'
 import TabHeader from './tabHeader'
 import axios from 'axios'
-import CovidMap from './usCovidMap'
+import CovidWorldMap from './MapsComponents/worldsMap'
+import CovidUSMap from './MapsComponents/usCovidMap'
 
 function Dashboard(){
-    let globalCases, deathCases,unitedStatesCases,indvStatesCases
+    let globalCases, deathCases,unitedStatesCases,usDeathCases,globalRecoveryCases,usRecoveryCases
     const [countryData,setCountryData]=useState({
         totalCases:{},
         usCases:{},
-        usStates:{}
     })
      
     const fetchData=()=>{
         const totalCase=axios.get('https://disease.sh/v3/covid-19/all?yesterday=true')
-        const usCases=axios.get('https://disease.sh/v3/covid-19/countries/United%20States?strict=true')
-        const stateCases=axios.get('https://disease.sh/v3/covid-19/states')
-        axios.all([totalCase,usCases,stateCases])
+        // https://disease.sh/v3/covid-19/continents?yesterday=true
+        const usCases=axios.get('https://disease.sh/v3/covid-19/countries/United%20States?yesterday=true&strict=true')
+        // const stateCases=axios.get('https://disease.sh/v3/covid-19/states')
+        axios.all([totalCase,usCases])
         .then(axios.spread((...res)=>{
-           setCountryData({totalCases:res[0].data,usCases:res[1].data, usStates:res[2].data})
+           setCountryData({totalCases:res[0].data,usCases:res[1].data})
         }))
         .catch(err=>{
             console.log(err)
@@ -31,53 +32,47 @@ function Dashboard(){
     },[])
 
     if (Object.keys(countryData.totalCases).length !== 0){
-        globalCases= <TotalCard title="Total Positive Cases" content={countryData.totalCases.cases} posVal={countryData.totalCases.todayCases}/>
-        deathCases= <TotalCard title="Total Death Cases" content={countryData.totalCases.deaths} posVal={countryData.totalCases.todayDeaths}/>
+        globalCases= <TotalCard title="Positive Cases" content={countryData.totalCases.cases} posVal={countryData.totalCases.todayCases}/>
+        deathCases= <TotalCard title="Death Cases" content={countryData.totalCases.deaths} posVal={countryData.totalCases.todayDeaths}/>
+        globalRecoveryCases=<TotalCard title="Recovery Cases" content={countryData.totalCases.recovered} posVal={countryData.totalCases.todayRecovered}/>
     }
     if (Object.keys(countryData.usCases).length !== 0){
-        unitedStatesCases= <TotalCard title="Total Positive Cases" content={countryData.usCases.cases} posVal={countryData.usCases.todayCases}/>
+        unitedStatesCases= <TotalCard title="Positive Cases" content={countryData.usCases.cases} posVal={countryData.usCases.todayCases}/>
+        usDeathCases=<TotalCard title="Death Cases" content={countryData.usCases.deaths} posVal={countryData.usCases.todayDeaths}/>
+        usRecoveryCases=<TotalCard title="Recovery Cases" content={countryData.usCases.recovered} posVal={countryData.usCases.todayRecovered}/>
     }
-    console.log(countryData.usStates)
     return (
         <div>
         {console.log("Hello there! wtf")}
         <Container fluid>
             <div>
-            <center><TabHeader title="Global Covid-19 Data"/></center>
+                <center><TabHeader title="Global Covid-19 Data"/></center>
             </div>
             <br/>
             
             <Row>
-            <Col xs="12" md="6"> {globalCases} </Col>
-            <Col xs="12" md="6"> {deathCases}</Col>
+                <Col xs="12" md="4"> {globalCases} </Col>
+                <Col xs="12" md="4"> {deathCases}</Col>
+                <Col xs="12" md="4"> {globalRecoveryCases}</Col>
             </Row>
             <br/>
             <div>
-            <center><TabHeader title="United States Covid-19 Data"/></center>
+                <center><TabHeader title="United States Covid-19 Data"/></center>
             </div>
             <br/>
             <Row>
-            <Col md="6" lg="3" xs="12"><TotalCard title="United States" content="8,304,702" posVal="43,761"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="India" content="7,594,799" posVal="53,891"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Brazil" content="3,290,322" posVal="23,243"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Russia" content="1,911,498" posVal="12,672"/></Col>
+                <Col xs="12" md="4"> {unitedStatesCases} </Col>
+                <Col xs="12" md="4"> {usDeathCases}</Col>
+                <Col xs="12" md="4">{usRecoveryCases} </Col>
             </Row>
             <br/>
             <Row>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Argentina" content="1,311,689" posVal="10,233"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Spain" content="1,009,328" posVal="9,898"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Colombia" content="990,892" posVal="9,006"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="France" content="910,902" posVal="8,909"/></Col>
-            </Row>
-            <br/>
-            <Row>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Peru" content="868,675" posVal="3,126"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="Mexico" content="854,926" posVal="3,699"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="United Kingdom" content="741,212" posVal="18,803"/></Col>
-            <Col md="6" lg="3" xs="12"><TotalCard title="South Africa" content="705,254" posVal="1,461"/></Col>
-            </Row>
-            <Row>
-                <CovidMap/>
+                <Col md="6" lg="6" xs="12">
+                    <CovidWorldMap/>
+                </Col>
+                <Col md="6" lg="6" xs="12">
+                    <CovidUSMap/>
+                </Col>
             </Row>
             <br/>
       </Container>

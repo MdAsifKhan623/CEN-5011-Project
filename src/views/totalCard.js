@@ -6,8 +6,8 @@ export default function TotalCard(props){
             <Card className="card-pos-death" style={{  }}>
                 <Card.Body>
                     <Card.Title><h2>{props.title}</h2></Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">+ {props.posVal}</Card.Subtitle>
-                    <Card.Text>
+                    <Card.Subtitle className="mb-2 text-muted">+Today: {props.posVal}</Card.Subtitle>
+                    <Card.Text className="covid-counts">
                     {props.content}
                     </Card.Text>
                 </Card.Body>
