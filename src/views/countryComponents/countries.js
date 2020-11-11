@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react'
 import TotalCard from '../totalCard'
 import {Container, Row, Col} from 'react-bootstrap'
 import axios from 'axios'
-import CtryGetData from './countryGetData'
 
 export default function Countries(){
     const [formvalue,setValue]=useState('')
@@ -18,7 +17,9 @@ export default function Countries(){
         axios.get(`https://disease.sh/v3/covid-19/countries/${formvalue}?yesterday=true&strict=true`)
         .then((res)=>{
             setCountryData(res.data)
+            
         })
+        console.log(apiCountryData)
         e.preventDefault();
         
     }
