@@ -19,7 +19,7 @@ header{
 }
 .covid-counts{
     color:#150485;
-    font-size: 30px;
+    font-size: 27px;
 }
 .card-tab-header.card{
     text-align: center;
@@ -30,4 +30,7 @@ header{
     color: #3adb21;
     width: 600px;
     background-color: #394989;
+}
+.country-field{
+    width:40%;
 }
