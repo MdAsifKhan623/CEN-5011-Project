@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Header from './views/header'
 import Dashboard from './views/dashboard'
 import News from './views/news'
-import Continents from './views/continents'
+import Continents from './views/ContinentComponents/continents'
 import Countries from './views/countryComponents/countries'
 import LocalInfo from './views/localInfo'
 

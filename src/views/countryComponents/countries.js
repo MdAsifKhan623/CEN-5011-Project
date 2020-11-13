@@ -46,7 +46,7 @@ export default function Countries(){
     return (
         <div>
         <Container fluid>
-        <center><TabHeader title="Country Name"/></center>
+        <center><TabHeader title="Country Data"/></center>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicPassword">
                 <br/>
