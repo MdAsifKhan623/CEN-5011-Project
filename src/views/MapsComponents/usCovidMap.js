@@ -47,7 +47,7 @@ const chartConfigs = {
             "caption": "StateWise Covid Cases Cases",
             "subcaption": " 1955-2015",
             "numbersuffix": "",
-            "includevalueinlabels": "1",
+            "includevalueinlabels": "0",
             "labelsepchar": ": ",
             "entityFillHoverColor": "#FFF9C4",
             "theme": "fusion"
@@ -75,7 +75,8 @@ export default function CovidUSMap(){
            dataset1.push({
                "Label":item.state,
                'ID':stateDict.get(item.state),
-               "value":item.cases
+               "value":item.cases,
+               "showLabel":'1'
            })
         })
     }

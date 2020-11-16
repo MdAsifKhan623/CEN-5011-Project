@@ -77,7 +77,7 @@ const chartConfigs = {
             "caption": "Continents Total covid-19 Cases",
             "subcaption": "Asia(AS)North America(NA)South America(SA)Australia(AU)Europe(EU)Africa(AF)",
             "numbersuffix": "",
-            "includevalueinlabels": "1",
+            "includevalueinlabels": "0",
             "labelsepchar": ": ",
             "entityFillHoverColor": "#FFF9C4",
             "theme": "fusion"
