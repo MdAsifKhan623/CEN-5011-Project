@@ -8,6 +8,7 @@ import News from './views/news'
 import Continents from './views/ContinentComponents/continents'
 import Countries from './views/countryComponents/countries'
 import LocalInfo from './views/localInfo'
+import USStates from './views/usStates'
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
             <Route path="/countries" exact component={Countries}/>
             <Route path="/continents" exact component={Continents}/>
             <Route path="/county" exact component={LocalInfo}/>
+            <Route path="/usstates" exact component={USStates}/>
           </Switch>
     </div>
     </Router>

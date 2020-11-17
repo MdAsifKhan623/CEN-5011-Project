@@ -39,7 +39,7 @@ export default function Countries(){
         covidDeathCases=<TotalCard title="Death Cases" content={apiCountryData.deaths} posVal={apiCountryData.todayDeaths}/>
         covidRecoveryCases=<TotalCard title="Recovery Cases" content={apiCountryData.recovered} posVal={apiCountryData.todayRecovered}/>
         casesStatus=<DiffCard title="Cases Status" name1="Active:" cont1={apiCountryData.active} name2="Critical:" cont2={apiCountryData.critical}/>
-        perMillionCard= <DiffCard title="Per Million Cases Counts" name2="Cases/Million:" name1="Deaths/Million:" cont1={apiCountryData.casesPerOneMillion} cont2={apiCountryData.deathsPerOneMillion}/>
+        perMillionCard= <DiffCard title="Per Million Cases Counts" name2="Cases/Million:" name1="Deaths/Million:" cont1={apiCountryData.deathsPerOneMillion} cont2= {apiCountryData.casesPerOneMillion}/>
         testCard=<DiffCard title="Test Counts" name2="Test/Million:" name1="Tests:" cont1={apiCountryData.tests} cont2={apiCountryData.testsPerOneMillion}/>
     }
     
