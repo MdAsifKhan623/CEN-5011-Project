@@ -5,7 +5,7 @@ import NorthAmerica from 'fusioncharts/fusioncharts.maps'
 import FusionMapsNorthAmerica from 'fusionmaps/maps/es/fusioncharts.northamerica'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-ReactFC.fcRoot(FusionCharts, FusionMapsNorthAmerica, Northamerica, FusionTheme);
+ReactFC.fcRoot(FusionCharts, FusionMapsNorthAmerica, NorthAmerica, FusionTheme);
 
 let dataset1=[]
 

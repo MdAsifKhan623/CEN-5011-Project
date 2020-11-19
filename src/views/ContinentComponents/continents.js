@@ -6,7 +6,7 @@ import TotalCard from '../totalCard'
 import {DiffCard} from '../totalCard'
 import Asia from './Asia'
 import Africa from './Africa'
-import SouthAmerica from './SouthAmerica'
+import SouthAmericaMap from './SouthAmerica'
 
 
 export default function Continents(){
@@ -79,7 +79,7 @@ export default function Continents(){
             <center>
                 <Asia/>
                 <Africa/>
-                <SouthAmerica/>
+                <SouthAmericaMap/>
             </center>
             </Container>
         </div>

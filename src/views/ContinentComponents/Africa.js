@@ -2,7 +2,7 @@ import React from 'react'
 import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
 import Africa from 'fusioncharts/fusioncharts.maps'
-import FusionMapsAfrica from 'fusionmaps/maps/es/fusioncharts.africa'
+import FusionMapsAfrica from 'fusionmaps/maps/fusioncharts.africa'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 ReactFC.fcRoot(FusionCharts, FusionMapsAfrica, Africa, FusionTheme);

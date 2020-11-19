@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
-import SouthAmerica from 'fusioncharts/fusioncharts.maps'
-import FusionMapsSouthAmerica from 'fusionmaps/maps/es/fusioncharts.southamerica'
+import FusionMaps from 'fusioncharts/fusioncharts.maps'
+import SouthAmerica from 'fusionmaps/maps/fusioncharts.southamerica'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
-ReactFC.fcRoot(FusionCharts, FusionMapsSouthAmerica, SouthAmerica, FusionTheme);
+
+
+ReactFC.fcRoot(FusionCharts, SouthAmerica,FusionMaps, FusionTheme);
 
 let dataset1=[]
 
