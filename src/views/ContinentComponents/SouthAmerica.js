@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
-import FusionMaps from 'fusioncharts/fusioncharts.maps'
-import SouthAmerica from 'fusionmaps/maps/fusioncharts.southamerica'
+import FusionMapsSouthAmerica from  'fusionmaps/maps/es/fusioncharts.southamerica'
+import SouthAmerica from 'fusioncharts/fusioncharts.maps'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
 
 
-ReactFC.fcRoot(FusionCharts, SouthAmerica,FusionMaps, FusionTheme);
+ReactFC.fcRoot(FusionCharts,FusionMapsSouthAmerica, SouthAmerica, FusionTheme);
 
 let dataset1=[]
 
@@ -24,7 +24,7 @@ let dataset1=[]
 
 
 const chartConfigs = {
-    type: 'South America', // The chart type
+    type: 'SouthAmerica', // The chart type
     width: '700', // Width of the chart
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type

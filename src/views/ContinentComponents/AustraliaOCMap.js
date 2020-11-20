@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactFC from 'react-fusioncharts';
 import FusionCharts from 'fusioncharts';
-import FusionMapsAustralia from 'fusionmaps/maps/es/fusioncharts.australia'
+import FusionMapsAustralia from 'fusionmaps/maps/es/fusioncharts.oceania'
 import Australia from 'fusioncharts/fusioncharts.maps'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
@@ -22,7 +22,7 @@ let dataset1=[]
 
 
 const chartConfigs = {
-    type: 'Australia', // The chart type
+    type: 'Oceania', // The chart type
     width: '700', // Width of the chart
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type

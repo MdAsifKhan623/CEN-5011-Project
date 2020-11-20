@@ -31,9 +31,54 @@ header{
     width: 600px;
     background-color: #394989;
 }
+
+.continent-title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    color: white;
+    width: 600px;
+    background-color: #01c5c4;
+}
+
 .country-field{
     width:40%;
 }
 .card-subtitle{
     color:red;
 }
+
+/*Toggle Card Styling*/
+
+
+.my-collapsible {
+    border: 1px solid;
+  }
+  .my-collapsible__toggle {
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-shadow: 0px 2px 2px gray;
+    background: transparent;
+  }
+  .my-collapsible__content {
+    overflow: hidden;
+    background: linear-gradient(0deg, lightblue, white);
+  }
+  
+  .my-collapsible__content-inner {
+    padding: 1rem;
+    min-height: 20rem;
+    _background: linear-gradient(lightblue, white);
+  }
+  
+  .number {
+    font-variant-numeric: tabular-nums;
+    min-width: 3em;
+    display: inline-block;
+    text-align: left;
+  }
+  

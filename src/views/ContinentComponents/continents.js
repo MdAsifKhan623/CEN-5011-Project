@@ -4,12 +4,23 @@ import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import axios from 'axios'
 import TotalCard from '../totalCard'
 import {DiffCard} from '../totalCard'
-import Asia from './Asia'
-import Africa from './Africa'
-import SouthAmericaMap from './SouthAmerica'
+import {Card} from 'react-bootstrap'
 
+
+function NameCard(props){
+    return (
+        <div>
+            <Card className="continent-title">
+                <Card.Body>
+                    <Card.Title><h2>{props.title}</h2></Card.Title>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
 
 export default function Continents(){
+    
     let covidPositiveCases, covidDeathCases,covidRecoveryCases,casesStatus, perMillionCard,testCard
     const [formvalue,setValue]=useState('')
     const [continentData,setContinentData]=useState({})
@@ -49,7 +60,7 @@ export default function Continents(){
         <div>
             <Container fluid>
             <center><TabHeader title="Continent Data"/></center>
-            
+                       
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicPassword">
                     <br/>
@@ -64,6 +75,8 @@ export default function Continents(){
                 </center>
             </Form>
             <br/>
+            <center><NameCard title={continentData.continent}/></center>
+            <br/>
             <Row>
                 <Col xs="12" md='4'>{covidPositiveCases}</Col>
                 <Col xs="12" md='4'>{covidDeathCases}</Col>
@@ -76,11 +89,6 @@ export default function Continents(){
                 <Col xs="12" md='4'>{testCard}</Col>
             </Row>
             <br/>
-            <center>
-                <Asia/>
-                <Africa/>
-                <SouthAmericaMap/>
-            </center>
             </Container>
         </div>
     )

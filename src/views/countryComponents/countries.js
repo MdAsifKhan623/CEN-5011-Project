@@ -61,7 +61,6 @@ export default function Countries(){
             </center>
             
         </Form>
-        {console.log(apiCountryData)}
         <br/>
         <center>
 

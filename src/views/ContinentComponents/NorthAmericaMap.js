@@ -22,7 +22,7 @@ let dataset1=[]
 
 
 const chartConfigs = {
-    type: 'North America', // The chart type
+    type: 'NorthAmerica', // The chart type
     width: '700', // Width of the chart
     height: '400', // Height of the chart
     dataFormat: 'json', // Data type

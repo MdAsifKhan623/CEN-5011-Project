@@ -8,7 +8,7 @@ import News from './views/news'
 import Continents from './views/ContinentComponents/continents'
 import Countries from './views/countryComponents/countries'
 import LocalInfo from './views/localInfo'
-import USStates from './views/usStates'
+import USStates from './views/StateComponents/usStates'
 
 function App() {
   
