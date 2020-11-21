@@ -7,7 +7,87 @@ import axios from 'axios'
 export default function USStates(){
     return (
         <div>
-            <StateCard/>                
+        <Container fluid>
+            <Row>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+                <Col xs="12" md='3'><StateCard/></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            <Row>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+                <Col xs="12" md='3'></Col>
+            </Row>
+            
+        </Container>                
         </div>
     )
 }

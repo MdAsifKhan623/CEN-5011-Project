@@ -53,9 +53,6 @@ header{
 /*Toggle Card Styling*/
 
 
-.my-collapsible {
-    border: 1px solid;
-  }
   .my-collapsible__toggle {
     font-size: 1rem;
     padding: 1rem;
