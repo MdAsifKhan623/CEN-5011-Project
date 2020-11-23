@@ -17,6 +17,9 @@ app.register_blueprint(mod_home)
 from app.mod_news.controllers import mod_auth as auth_module
 app.register_blueprint(auth_module, url_prefix='/news')
 
+from app.mod_county.controllers import mod_auth as auth_module
+app.register_blueprint(auth_module, url_prefix='/county')
+
 @app.shell_context_processor
 def make_shell_context():
     from models import City, Country

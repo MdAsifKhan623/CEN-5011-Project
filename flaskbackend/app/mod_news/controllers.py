@@ -5,20 +5,16 @@ from flask import Blueprint, redirect, url_for, abort, render_template, render_t
 import requests
 
 
-mod_home = Blueprint('news', __name__)
+mod_auth = Blueprint('news', __name__)
 
-@mod_home.route('/', methods=['GET'])
+@mod_auth.route('/', methods=['GET'])
 def index():
-
-    url = "https://newsapi.org/v2/everything?q=COVID today&sortBy=publishedAt&apiKey=c70b84aa4fde411f808f50858fff1da2&pageSize=100&page=1"
+    url = "https://newsapi.org/v2/everything?q=COVID+vaccine+today&sortBy=publishedAt&apiKey=c70b84aa4fde411f808f50858fff1da2&pageSize=100&page=1"
     payload = {}
     headers= {}
     response = requests.request("GET", url, headers=headers, data = payload)
-    title = []
-    urls = []
-    dates = []
-    for a in response.json()['articles']:
-    title.append(a['title'])
-    urls.append(a['url'])
-    dates.append(a['publishedAt'])
-    return title, urls, dates
+    a = response.json()['articles'][0:20]
+    b = {}
+    b['response'] = a
+    return b
+    
