@@ -8,7 +8,7 @@ export default function TotalCard(props){
                     <Card.Title><h2>{props.title}</h2></Card.Title>
                     <Card.Subtitle className="mb-2 card-subtitle">+Today: {props.posVal}</Card.Subtitle>
                     <Card.Text className="covid-counts">
-                    {props.content}
+                    Cases: {props.content}
                     </Card.Text>
                 </Card.Body>
             </Card>
