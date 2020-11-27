@@ -44,7 +44,7 @@ const chartConfigs = {
     dataSource: {
         // Map Configuration
         "chart": {
-            "caption": "StateWise Covid Cases Cases",
+            "caption": "StateWise Covid Cases",
             "subcaption": " 1955-2015",
             "numbersuffix": "",
             "includevalueinlabels": "0",
