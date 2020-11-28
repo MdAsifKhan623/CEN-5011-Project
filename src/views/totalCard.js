@@ -47,4 +47,41 @@ function DiffCard(props){
         </div>
     )
 }
-export {ImageCard,DiffCard}
+
+function TestingSiteCard(props){
+    return(
+        <div>
+            <Card className="card-pos-death" style={{  }}>
+                <Card.Body>
+                    <Card.Title><h2>{props.title}</h2></Card.Title>
+                    <Card.Subtitle className="mb-2 card-subtitle">Address: {props.posVal}</Card.Subtitle>
+                    <Card.Text className="covid-counts">
+                    Cases: {props.content}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
+
+function NewsCard(props){
+    let sign=">>"
+    return(
+        <div>
+            <Card className="card-News">
+                <Card.Body>
+                    <Card.Title><h4>{props.obj.title}</h4></Card.Title>
+                    <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'green'}}>{props.obj.description}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'blue'}}>Author: {props.obj.author}</Card.Subtitle>
+                    <Card.Text className="covid-counts">
+                    {<a href={props.obj.url}>Read More {sign}</a>}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </div>
+    )
+}
+
+
+
+export {ImageCard,DiffCard, TestingSiteCard, NewsCard}

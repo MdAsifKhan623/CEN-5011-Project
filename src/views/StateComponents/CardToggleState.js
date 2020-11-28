@@ -9,8 +9,8 @@ const StateCard = (props) => (
     duration={800}
     render={({ onToggle, setCollapsibleElement, progress }) => (
       <div className="my-collapsible">
-        <Card className="card-pos-death" style={{  }}>
-                <Card.Body>
+        <Card className="card-pos-death">
+                <Card.Body className="state-Card">
                     <Card.Title><h2>{props.obj.state}</h2></Card.Title>
                     <Card.Subtitle className="mb-2 card-subtitle">+Today: {props.obj.todayCases}</Card.Subtitle>
                     <Card.Text className="covid-counts">

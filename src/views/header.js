@@ -12,6 +12,7 @@ export default function Header(props){
                 <Nav.Link href="/news">News</Nav.Link>
                 <Nav.Link href="/county">Local County Info</Nav.Link>
                 <Nav.Link href="/usstates">US States</Nav.Link>
+                <Nav.Link href="/testing-sites">Testing Sites</Nav.Link>
                 </Nav>
                 <Form inline>
                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />

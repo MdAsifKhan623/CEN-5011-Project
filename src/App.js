@@ -4,12 +4,13 @@ import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Header from './views/header'
 import Dashboard from './views/dashboard'
-import News from './views/news'
+import News from './views/VaccineAndNews/news'
 import Continents from './views/ContinentComponents/continents'
 import Countries from './views/countryComponents/countries'
 import LocalInfo from './views/localInfo'
 import USStates from './views/StateComponents/usStates'
-
+import TestingSites from './views/Testing-Sites/Testing-sites'
+import Vaccine from './views/VaccineAndNews/vaccine'
 function App() {
   
   return (
@@ -29,6 +30,8 @@ function App() {
             <Route path="/continents" exact component={Continents}/>
             <Route path="/county" exact component={LocalInfo}/>
             <Route path="/usstates" exact component={USStates}/>
+            <Route path="/testing-sites" exact component={TestingSites}/>
+            <Route path="/vaccine-news" exact component={Vaccine}/>
           </Switch>
     </div>
     </Router>

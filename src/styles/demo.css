@@ -17,6 +17,17 @@ header{
     color: #01c5c4;
     background-color:#e8e8e8 ;
 }
+.card-News.card{
+  padding-left:0px;
+  border-left: 6px solid #12cad6!important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.state-Card.card-body{
+  border-left: 8px solid #28df99!important;
+} 
+.vaccine-Card{
+  height:185px;
+}
 .covid-counts{
     color:#150485;
     font-size: 20px;
@@ -70,7 +81,7 @@ header{
   }
   .my-collapsible__content {
     overflow: hidden;
-    background-color: #150485;
+    background-color: green;
   }
   
   .my-collapsible__content-inner {
