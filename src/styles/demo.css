@@ -32,6 +32,11 @@ header{
     color:#150485;
     font-size: 20px;
 }
+.covid-counts-site{
+  color:green; 
+  font-weight:bolder; 
+  font-size:15px
+}
 .state-covid-counts{
   color:whitesmoke;
   font-size: 15px;
