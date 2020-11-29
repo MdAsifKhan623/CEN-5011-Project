@@ -16,12 +16,12 @@ const VaccineCard = (props) => (
                     <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'green'}}>Mechanism: {props.obj.mechanism}</Card.Subtitle>
                     <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'blue'}}>Sponsors: {props.obj.sponsors}</Card.Subtitle>
                     <Card.Text className="covid-counts">
-                    Trail Phase: {props.obj.trialPhase}
+                    <label style={{fontWeight:'bolder'}}>Trail Phase: {props.obj.trialPhase}</label>
                     </Card.Text>
                 </Card.Body>
         </Card>
 
-        <button className="my-collapsible__toggle" onClick={onToggle}><label style={{ fontSize:"20px", color:'blue'}}>Details</label>
+        <button className="my-collapsible__toggle" onClick={onToggle}><label style={{ fontSize:"20px", color:'blue',fontWeight:"bolder"}}>Details</label>
         <FaChevronDown style={{ fontSize:"25px", color:'blue'}}/>
         {/* <span className="number">{progress.toFixed(1)}</span> */}
         </button>
