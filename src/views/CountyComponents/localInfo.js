@@ -9,13 +9,14 @@ export default function LocalInfo(){
     const [formvalue,setValue]=useState('')
     const [apiCountyData,setCountyData]=useState({})
     const [countyData,setCountyInfo]=useState([])
+    const [display,setDisplay]=useState(false)
     const handleChange=(e)=>{
         setValue(e.target.value)
     }
     const fetchUSData=(e)=>{
         axios.get('https://api.covidactnow.org/v2/counties.json?apiKey=c50a0970b11e4e5698159f28a81e52e3')
         .then((res)=>{
-            setCountyData(res.data)
+            setCountyData(res.data) 
         })
     }
     useEffect(()=>{
@@ -31,6 +32,12 @@ export default function LocalInfo(){
                 }
             }
         })
+        if (countyInfo.length===0){
+            setDisplay(true)
+        }
+        else{
+            setDisplay(false)
+        }
         setCountyInfo(countyInfo)
         e.preventDefault();
         
@@ -45,6 +52,7 @@ export default function LocalInfo(){
                     <br/>
                     <center>
                         <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter State Name" />
+                        {display && (<div style={{'color':'red'}}>Please provide a valid US state name.</div>)}
                     </center>
                 </Form.Group>
                 <center>

@@ -24,6 +24,7 @@ export default function Continents(){
     let covidPositiveCases, covidDeathCases,covidRecoveryCases,casesStatus, perMillionCard,testCard
     const [formvalue,setValue]=useState('')
     const [continentData,setContinentData]=useState({})
+    const [display, setDisplay]=useState(false)
     const handleSubmit=(e)=>{
         let url=`https://disease.sh/v3/covid-19/continents/${formvalue}?yesterday=true&strict=true`
         if (formvalue==="Australia/Oceania"){
@@ -32,8 +33,13 @@ export default function Continents(){
         axios.get(url)
         .then((res)=>{
             setContinentData(res.data)
+            setDisplay(false)
         })
-        console.log(continentData)
+        .catch((err)=>{
+            setDisplay(true)
+            setContinentData({})
+        })
+        
         e.preventDefault();
     }
     const handleChange=(e)=>{
@@ -66,6 +72,7 @@ export default function Continents(){
                     <br/>
                     <center>
                         <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter Continent Name" />
+                        {display && (<div style={{'color':'red'}}>Please provide a valid continent name.</div>)}
                     </center>
                 </Form.Group>
                 <center>

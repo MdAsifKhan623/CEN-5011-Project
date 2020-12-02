@@ -17,9 +17,12 @@ const CountyCard = (props) => (
                     <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'red', 'fontWeight':'bolder'}}>{props.obj.state}</Card.Subtitle>
                     <Card.Subtitle className="mb-2 card-subtitle" style={{'color':'#bb2205', 'fontWeight':'bolder'}}>+ Cases Today: {props.obj.actuals.newCases}</Card.Subtitle>
                     <Card.Text className="covid-counts" style={{'color':'green', 'fontWeight':'bolder'}}>
-                    <p>Cases: {props.obj.actuals.cases}</p> 
-                    <p>Deaths: {props.obj.actuals.deaths}</p>
+                      Cases: {props.obj.actuals.cases} 
                     </Card.Text>
+                    <Card.Text className="covid-counts" style={{'color':'green', 'fontWeight':'bolder'}}>
+                      Deaths: {props.obj.actuals.deaths}
+                    </Card.Text>
+                    
                 </center>
                 </Card.Body>
         </Card>
@@ -35,12 +38,24 @@ const CountyCard = (props) => (
               transform: `translateY(${Math.round(20 * (-1 + progress))}px)`
             }}
           >
-             <p className="state-covid-counts">Test Positivity Ratio: {props.obj.metrics.testPositivityRatio}</p>
-             <p className="state-covid-counts">Case Density: {props.obj.metrics.caseDensity}</p>
-             <p className="state-covid-counts">Infection Rate: {props.obj.metrics.infectionRate}</p>
-             <p className="state-covid-counts">Hospital Beds Capacity: {props.obj.actuals.hospitalBeds.capacity}</p>
-             <p className="state-covid-counts">ICU Beds Capacity: {props.obj.actuals.icuBeds.capacity}</p>
-             <p className="state-covid-counts">Last Updated Date: {props.obj.lastUpdatedDate}</p>
+            <Card.Text className="state-covid-counts" >
+              Test Positivity Ratio: {props.obj.metrics.testPositivityRatio}
+            </Card.Text>
+            <Card.Text className="state-covid-counts" >
+              Case Density: {props.obj.metrics.caseDensity}
+            </Card.Text>
+            <Card.Text className="state-covid-counts" >
+              Infection Rate: {props.obj.metrics.infectionRate}
+            </Card.Text>
+            <Card.Text className="state-covid-counts" >
+              Hospital Beds Capacity: {props.obj.actuals.hospitalBeds.capacity}
+            </Card.Text>
+            <Card.Text className="state-covid-counts" >
+              ICU Beds Capacity: {props.obj.actuals.icuBeds.capacity}
+            </Card.Text>
+            <Card.Text className="state-covid-counts" >
+              Last Updated Date: {props.obj.lastUpdatedDate}
+            </Card.Text>
               
           </div>
         </div>

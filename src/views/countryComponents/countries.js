@@ -10,6 +10,7 @@ export default function Countries(){
     const [formvalue,setValue]=useState('')
     const [apiCountryData,setCountryData]=useState({})
     const [countryFlag,setCountryFlag]=useState('https://disease.sh/assets/img/flags/us.png')
+    const [display, setDisplay]=useState(false)
     const handleChange=(e)=>{
         setValue(e.target.value)
     }
@@ -29,6 +30,13 @@ export default function Countries(){
         .then((res)=>{
             setCountryData(res.data)
             setCountryFlag(res.data.countryInfo.flag)
+            setDisplay(false)
+        })
+        .catch((err)=>{
+            console.log(err)
+            setDisplay(true)
+            setCountryData({})
+            setCountryFlag('')
         })
         console.log(apiCountryData)
         e.preventDefault();
@@ -52,6 +60,7 @@ export default function Countries(){
                 <br/>
                 <center>
                     <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter Country Name" />
+                    {display && (<div style={{'color':'red'}}>Please provide a valid country name.</div>)}
                 </center>
             </Form.Group>
             <center>

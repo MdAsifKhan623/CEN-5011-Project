@@ -7,12 +7,18 @@ import TestingSiteCard from './testingSiteCardToggle'
 export default function TestingSites(){
     const [stateName,setStateName]=useState('')
     const [testingSiteData, setTestingSiteData]=useState([])
+    const [display, setDisplay]=useState(false)
     const handleSubmit=(e)=>{
        axios.post(`http://127.0.0.1:5000/testing`, { state:stateName.toLowerCase().replaceAll(' ','') })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        setTestingSiteData(res.data.Item.data)
+        if (res.data.Item===undefined){
+            setDisplay(true)
+        }
+        else{
+            setTestingSiteData(res.data.Item.data)
+            setDisplay(false)
+        }
+        
       })
       e.preventDefault()
     }
@@ -29,6 +35,7 @@ export default function TestingSites(){
                     <br/>
                     <center>
                         <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter State Name" />
+                        {display && (<div style={{'color':'red'}}>Please Provide correct state name.</div>)}
                     </center>
                 </Form.Group>
                 <center>
