@@ -24,7 +24,7 @@ const TestingSiteCard = (props) => (
                         ZIP Code: {props.obj.physical_address[0].postal_code}
                     </Card.Text>
                     <Card.Text className="covid-counts-site">
-                        Phone No: {props.obj.phones[0].number}
+                        Phone No: {props.phone}
                     </Card.Text>
                     <Card.Text className="covid-counts-site">
                         Days: Opens Everyday

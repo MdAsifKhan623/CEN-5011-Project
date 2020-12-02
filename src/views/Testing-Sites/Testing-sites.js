@@ -42,13 +42,17 @@ export default function TestingSites(){
                     {testingSiteData.map(function(item,i){
                         let opens_at=''
                         let closes_at=''
+                        let phone_no=''
                         if ((item.regular_schedule).length>0){
 
                             opens_at=item.regular_schedule[0].opens_at
                             closes_at=item.regular_schedule[0].closes_at
                         }
+                        if ((item.phones.length)>0){
+                            phone_no=item.phones[0].number
+                        }
                         return (
-                        <Col key={i} xs="12" md='4'><TestingSiteCard obj={item} opens={opens_at} closes={closes_at}/>
+                        <Col key={i} xs="12" md='4'><TestingSiteCard obj={item} phone={phone_no} opens={opens_at} closes={closes_at}/>
                         <br/>
                         </Col>
                         )
