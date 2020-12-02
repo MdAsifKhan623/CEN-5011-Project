@@ -11,6 +11,7 @@ import LocalInfo from './views/CountyComponents/localInfo'
 import USStates from './views/StateComponents/usStates'
 import TestingSites from './views/Testing-Sites/Testing-sites'
 import Vaccine from './views/VaccineAndNews/vaccine'
+import About from './views/about'
 function App() {
   
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/usstates" exact component={USStates}/>
             <Route path="/testing-sites" exact component={TestingSites}/>
             <Route path="/vaccine-news" exact component={Vaccine}/>
+            <Route path='/about' exact component={About}/>
           </Switch>
     </div>
     </Router>

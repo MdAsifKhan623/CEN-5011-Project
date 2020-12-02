@@ -4,6 +4,7 @@ import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import axios from 'axios'
 import {ImageCard,DiffCard} from '../totalCard'
 import TotalCard from '../totalCard'
+import {countries} from '../../views/home'
 
 export default function Countries(){
     let covidPositiveCases, covidDeathCases,covidRecoveryCases,casesStatus, perMillionCard,testCard
@@ -11,6 +12,8 @@ export default function Countries(){
     const [apiCountryData,setCountryData]=useState({})
     const [countryFlag,setCountryFlag]=useState('https://disease.sh/assets/img/flags/us.png')
     const [display, setDisplay]=useState(false)
+    const [displayAutoSearch, setDisplayAutoSearch]=useState(false)
+
     const handleChange=(e)=>{
         setValue(e.target.value)
     }
@@ -24,8 +27,6 @@ export default function Countries(){
         fetchUSData()
     },[])
     const handleSubmit=(e)=>{
-        // const url="https://disease.sh/v3/covid-19/countries/"+{formvalue}+"?strict=true"
-        // console.log(url)
         axios.get(`https://disease.sh/v3/covid-19/countries/${formvalue}?yesterday=true&strict=true`)
         .then((res)=>{
             setCountryData(res.data)
@@ -50,7 +51,10 @@ export default function Countries(){
         perMillionCard= <DiffCard title="Per Million Cases Counts" name2="Cases/Million:" name1="Deaths/Million:" cont1={apiCountryData.deathsPerOneMillion} cont2= {apiCountryData.casesPerOneMillion}/>
         testCard=<DiffCard title="Test Counts" name2="Test/Million:" name1="Tests:" cont1={apiCountryData.tests} cont2={apiCountryData.testsPerOneMillion}/>
     }
-    
+    const setName=(name)=>{
+        setValue(name)
+        setDisplayAutoSearch(false)
+    }
     return (
         <div>
         <Container fluid>
@@ -59,11 +63,32 @@ export default function Countries(){
             <Form.Group controlId="formBasicPassword">
                 <br/>
                 <center>
-                    <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter Country Name" />
+                    <Form.Control className="country-field" onClick={()=>setDisplayAutoSearch(true)}
+                     onChange={handleChange} type="text"
+                      value={formvalue}
+                      placeholder="Enter Country Name" />
                     {display && (<div style={{'color':'red'}}>Please provide a valid country name.</div>)}
+                    
                 </center>
             </Form.Group>
             <center>
+                <Row>
+                    <Col>
+                    {displayAutoSearch && <div  className="autoContainer">
+                        {countries.filter(name=>name.toLowerCase().indexOf(formvalue.toLowerCase())>-1).map((ele,i)=>{
+                            return (
+                                <div 
+                                onClick={()=>setName(ele)}
+                                className='option'
+                                key={i}
+                                >
+                                {ele}
+                                </div>
+                            )
+                        })}
+                    </div>}
+                    </Col>
+                </Row>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

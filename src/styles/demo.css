@@ -106,11 +106,41 @@ header{
     min-height: 20rem;
     _background: linear-gradient(lightblue, white);
   }
-  
+  .about-app{
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #150485;
+  }
+  .about-heading{
+    border: 10px solid lightblue;
+    margin: 10px 15px 10px;
+    border-radius: 10px;
+    padding: 20px 5px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   .number {
     font-variant-numeric: tabular-nums;
     min-width: 3em;
     display: inline-block;
     text-align: left;
+  }
+  
+  .autoContainer {
+    position: absolute;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: goldenrod;
+    background-color: whitesmoke;
+    right: 10px;
+    top: 52px;
+    width: 520px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    padding: 5px;
   }
   
