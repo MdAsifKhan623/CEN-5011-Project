@@ -25,6 +25,8 @@ export default function Continents(){
     const [formvalue,setValue]=useState('')
     const [continentData,setContinentData]=useState({})
     const [display, setDisplay]=useState(false)
+    const [displayAutoSuggest,setDisplayAutoSuggest]=useState(false)
+    let cont=['Africa', 'Asia','Australia/Oceania', 'Europe', 'North America','South America']
     const handleSubmit=(e)=>{
         let url=`https://disease.sh/v3/covid-19/continents/${formvalue}?yesterday=true&strict=true`
         if (formvalue==="Australia/Oceania"){
@@ -44,6 +46,10 @@ export default function Continents(){
     }
     const handleChange=(e)=>{
         setValue(e.target.value)
+    }
+    const setName=(name)=>{
+        setDisplayAutoSuggest(false)
+        setValue(name)
     }
     const fetchData=(e)=>{
         axios.get('https://disease.sh/v3/covid-19/continents/North%20America?yesterday=true&strict=true')
@@ -67,12 +73,20 @@ export default function Continents(){
             <Container fluid>
             <center><TabHeader title="Continent Data"/></center>
                        
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} autoComplete="off">
                 <Form.Group controlId="formBasicPassword">
                     <br/>
                     <center>
-                        <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter Continent Name" />
+                        <Form.Control className="country-field" 
+                        onChange={handleChange} 
+                        onClick={()=>{
+                            setDisplayAutoSuggest(true)
+                        }}
+                        value={formvalue}
+                        type="text" 
+                        placeholder="Enter Continent Name" />
                         {display && (<div style={{'color':'red'}}>Please provide a valid continent name.</div>)}
+                        
                     </center>
                 </Form.Group>
                 <center>
@@ -81,6 +95,26 @@ export default function Continents(){
                     </Button>
                 </center>
             </Form>
+            <center>
+                <Row>
+                    <Col>
+                    {displayAutoSuggest && <div  className="autoContainer">
+                            {cont.filter(name=>name.toLowerCase().indexOf(formvalue.toLowerCase())>-1).map((ele,i)=>{
+                                return (
+                                    <div 
+                                    onClick={()=>setName(ele)}
+                                    className='option'
+                                    key={i}
+                                    tabIndex="0"
+                                    >
+                                    {ele}
+                                    </div>
+                                )
+                            })}
+                        </div>}
+                    </Col>
+                </Row>
+            </center>
             <br/>
             <center><NameCard title={continentData.continent}/></center>
             <br/>

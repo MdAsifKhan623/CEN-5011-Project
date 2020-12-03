@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import TabHeader from '../tabHeader'
 import {Container, Row, Col,Form, Button} from 'react-bootstrap'
 import axios from 'axios'
-import {stateName} from './stateName'
+import {stateName,USstates} from './stateName'
 import CountyCard from './countyToggleCard'
 
 export default function LocalInfo(){
@@ -10,6 +10,9 @@ export default function LocalInfo(){
     const [apiCountyData,setCountyData]=useState({})
     const [countyData,setCountyInfo]=useState([])
     const [display,setDisplay]=useState(false)
+    const [displayAutoSearch, setDisplayAutoSearch]=useState(false)
+    const wRef=useRef(null)
+
     const handleChange=(e)=>{
         setValue(e.target.value)
     }
@@ -22,6 +25,27 @@ export default function LocalInfo(){
     useEffect(()=>{
         fetchUSData()
     },[])
+
+    useEffect(()=>{
+        
+        document.addEventListener('mousedown', handleClickOutside)
+        
+        return ()=>{
+            console.log('removed')
+            document.removeEventListener('mousedown',handleClickOutside)
+        }
+    },[wRef])
+    const handleClickOutside = (event)=>{
+        console.log('mousedown',wRef.current.contains(event.target))
+        if(wRef.current && !wRef.current.contains(event.target)){
+            setDisplayAutoSearch(false)
+        }
+    }
+
+    const setName=(name)=>{
+        setValue(name)
+        setDisplayAutoSearch(false)
+    }
     const handleSubmit=(e)=>{
         let countyInfo=[]
         apiCountyData.map((item)=>{
@@ -43,15 +67,21 @@ export default function LocalInfo(){
         
     }
     return (
-        <div>
+        <div ref={wRef}>
             <Container fluid>
                 <center><TabHeader title="County Covid-19 Data"/></center>
                 <br/>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} autoComplete='off'>
                 <Form.Group controlId="formBasicPassword">
                     <br/>
                     <center>
-                        <Form.Control className="country-field" onChange={handleChange} type="text" placeholder="Enter State Name" />
+                        <Form.Control className="country-field"
+                         onChange={handleChange} 
+                         onClick={()=>{
+                             setDisplayAutoSearch(true)
+                         }}
+                         value={formvalue}
+                         type="text" placeholder="Enter State Name" />
                         {display && (<div style={{'color':'red'}}>Please provide a valid US state name.</div>)}
                     </center>
                 </Form.Group>
@@ -61,6 +91,27 @@ export default function LocalInfo(){
                     </Button>
                 </center> 
                 </Form>
+                <center>
+                    <Row>
+                        <Col>
+                        {displayAutoSearch && <div className="autoContainer">
+                            {USstates.filter(name=>name.toLowerCase().indexOf(formvalue.toLowerCase())>-1).map((ele,i)=>{
+                                return(
+                                    <div 
+                                    className="option"
+                                    onClick={()=>setName(ele)}
+                                    key={i}
+                                    tabIndex="0"
+                                    >
+                                    {ele}
+                                    </div>
+                                )
+                            })}
+                        </div>}
+                        </Col>
+
+                    </Row>
+                </center>
                 <br/>
                 <Row>
                 {countyData.map(function(item,i){

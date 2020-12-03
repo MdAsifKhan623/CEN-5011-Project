@@ -17,6 +17,7 @@ export default function TestingSites(){
       .then(res => {
         if (res.data.Item===undefined){
             setDisplay(true)
+            setTestingSiteData({})
         }
         else{
             setTestingSiteData(res.data.Item.data)
@@ -63,8 +64,21 @@ export default function TestingSites(){
                         value={stateName} onClick={()=>setDisplayAutoSearch(true)} 
                         onChange={handleChange} 
                         type="text" 
+                        oncl
                         placeholder="Enter State Name" />
                         {display && (<div style={{'color':'red'}}>Please Provide correct state name.</div>)}
+                        
+                    </center>
+                </Form.Group>
+                <center>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </center> 
+                </Form>
+                <center>
+                    <Row>
+                        <Col>
                         {displayAutoSearch && <div className="autoContainer">
                             {USstates.filter(name=>name.toLowerCase().indexOf(stateName.toLowerCase())>-1).map((ele,i)=>{
                                 return(
@@ -79,17 +93,13 @@ export default function TestingSites(){
                                 )
                             })}
                         </div>}
-                    </center>
-                </Form.Group>
-                <center>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </center> 
-                </Form>
+                        </Col>
+
+                    </Row>
+                </center>
                 <br/>
                 <Row>
-                    {testingSiteData.map(function(item,i){
+                    {!display && testingSiteData.map(function(item,i){
                         let opens_at=''
                         let closes_at=''
                         let phone_no=''
@@ -101,8 +111,24 @@ export default function TestingSites(){
                         if ((item.phones.length)>0){
                             phone_no=item.phones[0].number
                         }
+                        if ((item.physical_address).length===0){
+                            item.physical_address=[
+                                {
+                                    state_province:'',
+                                    address_1:'',
+                                    postal_code:''
+                                }
+                            ]
+                        }
+                            
+
                         return (
-                        <Col key={i} xs="12" md='4'><TestingSiteCard obj={item} phone={phone_no} opens={opens_at} closes={closes_at}/>
+                        <Col key={i} xs="12" md='4'><TestingSiteCard 
+                        obj={item} 
+                        phone={phone_no} 
+                        opens={opens_at} 
+                        closes={closes_at}
+                        />
                         <br/>
                         </Col>
                         )

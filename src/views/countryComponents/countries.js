@@ -59,7 +59,7 @@ export default function Countries(){
         <div>
         <Container fluid>
         <center><TabHeader title="Country Data"/></center>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} autoComplete="off">
             <Form.Group controlId="formBasicPassword">
                 <br/>
                 <center>
@@ -72,30 +72,31 @@ export default function Countries(){
                 </center>
             </Form.Group>
             <center>
-                <Row>
-                    <Col>
-                    {displayAutoSearch && <div  className="autoContainer">
-                        {countries.filter(name=>name.toLowerCase().indexOf(formvalue.toLowerCase())>-1).map((ele,i)=>{
-                            return (
-                                <div 
-                                onClick={()=>setName(ele)}
-                                className='option'
-                                key={i}
-                                tabIndex="0"
-                                >
-                                {ele}
-                                </div>
-                            )
-                        })}
-                    </div>}
-                    </Col>
-                </Row>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </center>
-            
         </Form>
+        <center>
+        <Row>
+            <Col>
+            {displayAutoSearch && <div  className="autoContainer">
+                {countries.filter(name=>name.toLowerCase().indexOf(formvalue.toLowerCase())>-1).map((ele,i)=>{
+                    return (
+                        <div 
+                        onClick={()=>setName(ele)}
+                        className='option'
+                        key={i}
+                        tabIndex="0"
+                        >
+                        {ele}
+                        </div>
+                    )
+                })}
+            </div>}
+            </Col>
+        </Row>
+        </center>
         <br/>
         <center>
 
