@@ -126,13 +126,13 @@ header{
   }
   
   .autoContainer {
-    position: absolute;
+    position: relative;
     border-width: 0px 1px 1px 1px;
     border-style: solid;
     border-color: goldenrod;
     background-color: whitesmoke;
     right: 10px;
-    top: 52px;
+    top: 10px;
     width: 520px;
   }
   
@@ -142,5 +142,9 @@ header{
     justify-content: space-between;
     width: 500px;
     padding: 5px;
+    z-index: 1;
+  }
+  .option:hover{
+    background-color: #bbbbbb;
   }
   

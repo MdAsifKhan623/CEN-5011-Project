@@ -81,6 +81,7 @@ export default function Countries(){
                                 onClick={()=>setName(ele)}
                                 className='option'
                                 key={i}
+                                tabIndex="0"
                                 >
                                 {ele}
                                 </div>
