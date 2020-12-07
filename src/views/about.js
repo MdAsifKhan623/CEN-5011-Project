@@ -13,7 +13,7 @@ export default function About(){
         <Container fluid>
             <Row>
                 <Col className='about-heading'>
-                    <center><h3 style={style1}>About this App</h3></center>
+                    <center><h3 style={style1}>About this Application</h3></center>
                     <div  className="about-app">
                         This application is designed to track the covid-19 pandemic with the global as well as local data of United States.
                         In addition to this feature, it also shows the current Covid-19 news with the status of different vaccines 
