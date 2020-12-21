@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 // import {Button} from 'react-bootstrap'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Row, Col} from 'react-bootstrap'
 import Header from './views/header'
 import Dashboard from './views/dashboard'
 import News from './views/VaccineAndNews/news'
@@ -18,7 +19,11 @@ function App() {
     <Router>
     <div className="App">
           <header>
-          <Header name="Covid-19 App"/>
+          <Row>
+          <Col>
+            <Header name="Covid-19 App"/>
+          </Col>
+          </Row>
           </header>
           <Switch>  
             <Route path="/" exact render={props=>

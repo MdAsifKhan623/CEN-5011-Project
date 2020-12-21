@@ -49,7 +49,6 @@ function Dashboard(){
     }
     return (
         <div>
-        {console.log("Hello there! wtf")}
         <Container fluid>
             <div>
                 <center><TabHeader title="Global Covid-19 Data"/></center>

@@ -1,9 +1,8 @@
 import React from 'react'
-import {Navbar,Nav,Form} from 'react-bootstrap'
+import {Container, Row, Col,Navbar,Nav,Form} from 'react-bootstrap'
 
 export default function Header(props){
     return (
-        <div>
             <Navbar bg="dark" variant="dark" className="nav-header">
                 <Navbar.Brand href="#home" style={{"fontFamily":"sans-serif"}}>{props.name}</Navbar.Brand>
                 <Nav className="mr-auto">
@@ -19,6 +18,5 @@ export default function Header(props){
                 <Nav.Link href="/about" className='tabs-section'>About</Nav.Link>
                 </Form>
             </Navbar>
-        </div>
     )
 }
