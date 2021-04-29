@@ -32,6 +32,10 @@ let dataset1=[]
         "minvalue":'1000000.0',
         'maxvalue':'1500000.0',
         'color':'#fb0000'
+    },{
+        "minvalue":'1500000.0',
+        'maxvalue':'2500000.0',
+        'color':'#c70039'
     }]
 };
 

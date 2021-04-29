@@ -18,12 +18,16 @@ dynamoTable=dynamoDB.Table('TestingCenters_Table')
 #     }
 # )
 
-
-
 @app.route("/home", methods=['GET'])
 def main():
     return {
         'id':"1",
+        'data':"Hello Novak"
+    }
+
+@app.route("/metering", methods=['POST'])
+def metering_post():
+    return {
         'data':"Hello Novak"
     }
 @app.route("/testing", methods=['POST'])
@@ -36,6 +40,6 @@ def testingSite():
         response=dynamoTable.get_item(
             Key={primary_column_name:stateName}
         )
-        response.headers.add('Access-Control-Allow-Origin', 'https://mdasifkhan623.github.io')
-        response.headers.add("Access-Control-Allow-Headers", "X-Requested-With, content-type")
+        # response.headers.add('Access-Control-Allow-Origin', 'https://mdasifkhan623.github.io')
+        # response.headers.add("Access-Control-Allow-Headers", "X-Requested-With, content-type")
         return response

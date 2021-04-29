@@ -64,7 +64,6 @@ export default function TestingSites(){
                         value={stateName} onClick={()=>setDisplayAutoSearch(true)} 
                         onChange={handleChange} 
                         type="text" 
-                        oncl
                         placeholder="Enter State Name" />
                         {display && (<div style={{'color':'red'}}>Please Provide correct state name.</div>)}
                         

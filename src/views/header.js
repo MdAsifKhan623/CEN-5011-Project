@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container, Row, Col,Navbar,Nav,Form} from 'react-bootstrap'
+import {Navbar,Nav,Form} from 'react-bootstrap'
 
 export default function Header(props){
     return (
